@@ -7,10 +7,7 @@
     <link rel='stylesheet' type='text/css' href='style.css'>
   </head>
   <body>
-    <header>
-      <h1>hello</h1>
-    </header>
-    <button>"Generate Tweet"</button>
+    
     <script>
 
       $(document).ready(function(){
@@ -18,7 +15,7 @@
         $body.html('');
 
       $('body').css({'background-color': '#bfd7ff'});
-      var title = $('<h1>Twittler</h1>')
+      var title = $('<h1>douglascalhoun Twits</h1>')
       $('body').append(title);
       $(title).css({'color': 'blue',
                     'text-align': 'center',
@@ -33,10 +30,6 @@
         var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
           return weekday[date.getDay()] + ' ' + month[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
       }
-
-      function dateFormatter(date){
-        return typeof date;
-      }
       
       function createTweets(){
         var index = streams.home.length - 1;
@@ -44,39 +37,15 @@
           var tweet = streams.home[index];
           var $tweet = $('<ul><li></li></ul>');
 
-          var $userName = $('<a id="timeline" href="link"></a>')
-          if (tweet.user === 'shawndrost'){
-            $userName  = $('<a id="timeline" href="shawndrost.html"></a>')
-          } else if (tweet.user === 'mracus'){
-            $userName = $('<a id="timeline" href="mracus.html"></a>')
-          } else if (tweet.user === 'sharksforcheap'){
-            $userName = $('<a id="timeline" href="sharksforcheap.html"></a>')
-          } else {
-            $userName = $('<a id="timeline" href="douglascalhoun.html"></a>')
-          }
+          
           $tweet.text(tweet.message + ': ' + tweet.created_at.toString().slice(0, 24));
           $tweet.appendTo($body);
-          $userName.text('@' + tweet.user);
-          $userName.appendTo($tweet);
+          
           index -= 1;
         }
       }
       
       
-
-      function determineTimeline(user){
-         if (user === 'shawndrost'){
-          $userName = $('<a href="shawndrost.html"></a>')
-         }
-         if (user === 'mracus'){
-          $userName = $('<a href="mracus.html"></a>')
-         }
-         if (user === 'sharksforcheap'){
-          $userName = $('<a href="sharksforcheap.html"></a>')
-         } else {
-          $userName = $('<a href="douglascalhoun.html"></a>')
-         }
-      }
 
       createTweets();
 

@@ -1,0 +1,22 @@
+ul {
+
+	color:#ffffff;
+    text-align: left;
+    border-style: solid;
+   border-color: black;
+   font-size: 20px;
+    padding:20px;
+    background-image: url('https://www.pakistankakhudahafiz.com/pkkhnew/wp-content/uploads/2016/05/6359453691210392131222221661_Twitter.jpg');
+	background-size: cover;
+    background-position: center;
+    max-width:50%;
+    width: 80%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+};
+
+h2{
+	text-align: center;
+	color: blue;
+}
