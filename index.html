@@ -5,38 +5,29 @@
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <link rel='stylesheet' type='text/css' href='style.css'>
+    <script src="dist/timeago.js" type="text/javascript"></script>
   </head>
   <body>
-    <header>
-      <h1>hello</h1>
-    </header>
-    <button>"Generate Tweet"</button>
+    
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
 
-      $('body').css({'background-color': '#bfd7ff'});
+      $('body').css({'background-color': '#dbe8ff'});
       var title = $('<h1>Twittler</h1>')
       $('body').append(title);
       $(title).css({'color': 'blue',
                     'text-align': 'center',
-                    'font-size': '60px',
+                    'font-size': '80px',
                     'text-decoration': 'underline',
                     'font-family': 'fantasy'});
+      var disclaimer = $('<p class ="disclaimer">Any similarities to certain bird-related social media platforms are pure coincidence</p>');
+      $(title).after(disclaimer);
+      var twiddle = $('<img class="thumbs" src="http://2.bp.blogspot.com/-BtStmGpZOts/TsCIMLUXvwI/AAAAAAAACAc/N19iHf_pGms/s1600/hands_twiddling_thumbs_fast_lg_nwm.gif" width="128" height="128">')
+      $(disclaimer).after(twiddle);      
 
-      
-
-      function formatDate(date){
-        var month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-          return weekday[date.getDay()] + ' ' + month[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-      }
-
-      function dateFormatter(date){
-        return typeof date;
-      }
       
       function createTweets(){
         var index = streams.home.length - 1;
@@ -54,34 +45,24 @@
           } else {
             $userName = $('<a id="timeline" href="douglascalhoun.html"></a>')
           }
-          $tweet.text(tweet.message + ': ' + tweet.created_at.toString().slice(0, 24));
+          $tweet.text(' - ' + tweet.message + ': ' + tweet.created_at.toString().slice(0, 24));
+          
           $tweet.appendTo($body);
+          
           $userName.text('@' + tweet.user);
-          $userName.appendTo($tweet);
+          $userName.prependTo($tweet);
+
           index -= 1;
         }
-      }
-      
-      
 
-      function determineTimeline(user){
-         if (user === 'shawndrost'){
-          $userName = $('<a href="shawndrost.html"></a>')
-         }
-         if (user === 'mracus'){
-          $userName = $('<a href="mracus.html"></a>')
-         }
-         if (user === 'sharksforcheap'){
-          $userName = $('<a href="sharksforcheap.html"></a>')
-         } else {
-          $userName = $('<a href="douglascalhoun.html"></a>')
-         }
       }
+      
+    
 
       createTweets();
-
-      setInterval(function(){ createTweets(); }, 5000);
-
+      
+      setInterval(function(){ createTweets(); }, 7000);
+      
       });
 
     </script>

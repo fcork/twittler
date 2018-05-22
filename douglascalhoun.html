@@ -14,7 +14,7 @@
         var $body = $('body');
         $body.html('');
 
-      $('body').css({'background-color': '#bfd7ff'});
+      $('body').css({'background-color': '#dbe8ff'});
       var title = $('<h1>douglascalhoun Twits</h1>')
       $('body').append(title);
       $(title).css({'color': 'blue',
@@ -24,13 +24,14 @@
                     'font-family': 'fantasy'});
 
       
+/*  function I didn't end up using
 
       function formatDate(date){
         var month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
           return weekday[date.getDay()] + ' ' + month[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
       }
-      
+ */     
       function createTweets(){
         var index = streams.home.length - 1;
         while(index >= 0){
@@ -47,7 +48,7 @@
       
       
 
-      createTweets();
+      
 
       setInterval(function(){ createTweets(); }, 5000);
 
